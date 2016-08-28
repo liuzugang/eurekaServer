@@ -1,0 +1,20 @@
+eureka:
+  instance:
+    hostname: peer1
+    appname: eureka-service
+    preferIpAddress: false
+    leaseRenewalIntervalInSeconds: 30
+    metadataMap:
+      instanceId: ${server.port}
+      
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+
+  server:
+    enable-self-preservation: true
+
+server:
+  port: 8761

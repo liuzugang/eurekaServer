@@ -1,0 +1,16 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+    appname: eurekaServer #在eureka中的application名称
+#    preferIpAddress: true #eureka中的界面中是否显示ip
+    leaseRenewalIntervalInSeconds: 30 #心跳时间间隔，生产环境不建议修改
+    metadataMap:
+      instanceId: ${server.port} #实例名，也可以用其它策略
+  client:
+    registerWithEureka: false #是否把自己注册到Eureka
+    fetchRegistry: false #是否从Eureka中获取注册表
+  server:
+    enable-self-preservation: false #是否启用自我保护模式
